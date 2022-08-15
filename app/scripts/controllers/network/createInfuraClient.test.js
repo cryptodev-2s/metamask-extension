@@ -2,7 +2,10 @@
  * @jest-environment node
  */
 
-import { withInfuraClient } from './provider-api-tests/helpers';
+import {
+  mockingInfuraCommunications,
+  withInfuraClient,
+} from './provider-api-tests/helpers';
 import {
   testsForRpcMethodThatDoesNotSupportParams,
   testsForRpcMethodsThatCheckForBlockHashInResponse,
@@ -21,6 +24,10 @@ describe('createInfuraClient', () => {
   //
   // Some RPC methods are cacheable. Consult the definitive list of cacheable
   // RPC methods in `cacheTypeForPayload` within `eth-json-rpc-middleware`.
+  //
+  // Also note that the retry-on-empty middleware is not tested currently
+  // because it has a bug which is making it ineffective. See:
+  // <https://github.com/MetaMask/eth-json-rpc-middleware/issues/139>
 
   describe('when the RPC method is eth_chainId', () => {
     it('does not hit Infura, instead returning the chain id that maps to the Infura network, as a hex string', async () => {
@@ -120,15 +127,69 @@ describe('createInfuraClient', () => {
   });
 
   describe('eth_getTransactionByHash', () => {
-    testsForRpcMethodsThatCheckForBlockHashInResponse(
-      'eth_getTransactionByHash',
-    );
+    const method = 'eth_getTransactionByHash';
+
+    testsForRpcMethodsThatCheckForBlockHashInResponse(method);
+
+    it("refreshes the block tracker's current block if it is less than the block number that comes back in the response", async () => {
+      await mockingInfuraCommunications(async (comms) => {
+        const request = { method };
+
+        // The first time a block-cacheable request is made, the latest
+        // block number is retrieved through the block tracker first.
+        comms.mockNextBlockTrackerRequest({ blockNumber: '0x100' });
+        // This is our request.
+        comms.mockInfuraRpcCall({
+          request,
+          response: {
+            result: {
+              blockNumber: '0x200',
+            },
+          },
+        });
+        // The block-tracker-inspector middleware will request the latest
+        // block through the block tracker again.
+        comms.mockNextBlockTrackerRequest({ blockNumber: '0x300' });
+
+        await withInfuraClient(async ({ makeRpcCall, blockTracker }) => {
+          await makeRpcCall(request);
+          expect(blockTracker.getCurrentBlock()).toStrictEqual('0x300');
+        });
+      });
+    });
   });
 
   describe('eth_getTransactionReceipt', () => {
-    testsForRpcMethodsThatCheckForBlockHashInResponse(
-      'eth_getTransactionReceipt',
-    );
+    const method = 'eth_getTransactionReceipt';
+
+    testsForRpcMethodsThatCheckForBlockHashInResponse(method);
+
+    it("refreshes the block tracker's current block if it is less than the block number that comes back in the response", async () => {
+      await mockingInfuraCommunications(async (comms) => {
+        const request = { method };
+
+        // The first time a block-cacheable request is made, the latest
+        // block number is retrieved through the block tracker first.
+        comms.mockNextBlockTrackerRequest({ blockNumber: '0x100' });
+        // This is our request.
+        comms.mockInfuraRpcCall({
+          request,
+          response: {
+            result: {
+              blockNumber: '0x200',
+            },
+          },
+        });
+        // The block-tracker-inspector middleware will request the latest
+        // block through the block tracker again.
+        comms.mockNextBlockTrackerRequest({ blockNumber: '0x300' });
+
+        await withInfuraClient(async ({ makeRpcCall, blockTracker }) => {
+          await makeRpcCall(request);
+          expect(blockTracker.getCurrentBlock()).toStrictEqual('0x300');
+        });
+      });
+    });
   });
 
   describe('eth_getUncleByBlockHashAndIndex', () => {

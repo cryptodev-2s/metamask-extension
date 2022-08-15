@@ -38,19 +38,19 @@ import createInfuraClient from '../createInfuraClient';
  */
 
 /**
- * @typedef {{ nockScope: NockScope, blockNumber: string }} MockNextBlockTrackerRequestOptions
+ * @typedef {{ nockScope: NockScope, blockNumber: string }} MockBlockTrackerRequestOptions
  *
- * The options to `mockNextBlockTrackerRequest`.
+ * The options to `mockNextBlockTrackerRequest` and `mockAllBlockTrackerRequests`.
  */
 
 /**
- * @typedef {{ nockScope: NockScope, request: object, response: object, delay?: number }} MockSuccessfulInfuraRpcCallOptions
+ * @typedef {{ nockScope: NockScope, request: object, response: object, delay?: number }} MockInfuraRpcCallOptions
  *
- * The options to `mockSuccessfulInfuraRpcCall`.
+ * The options to `mockInfuraRpcCall`.
  */
 
 /**
- * @typedef {{mockNextBlockTrackerRequest: (options: Omit<MockNextBlockTrackerRequestOptions, 'nockScope'>) => void, mockSuccessfulInfuraRpcCall: (options: Omit<MockSuccessfulInfuraRpcCallOptions, 'nockScope'>) => NockScope}} InfuraCommunications
+ * @typedef {{mockNextBlockTrackerRequest: (options: Omit<MockBlockTrackerRequestOptions, 'nockScope'>) => void, mockAllBlockTrackerRequests: (options: Omit<MockBlockTrackerRequestOptions, 'nockScope'>) => void, mockInfuraRpcCall: (options: Omit<MockInfuraRpcCallOptions, 'nockScope'>) => NockScope}} InfuraCommunications
  *
  * Provides methods to mock different kinds of requests to Infura.
  */
@@ -62,7 +62,7 @@ import createInfuraClient from '../createInfuraClient';
  */
 
 /**
- * @typedef {(client: InfuraClient) => Promise<any>} InfuraCommunicationsOptionsCallback
+ * @typedef {(comms: InfuraCommunications) => Promise<any>} InfuraCommunicationsOptionsCallback
  *
  * The callback that `mockingInfuraCommunications` takes.
  */
@@ -111,7 +111,7 @@ function buildScopeForMockingInfuraRequests({ network = 'mainnet' } = {}) {
 /**
  * Mocks the next request for the latest block that the block tracker will make.
  *
- * @param {MockNextBlockTrackerRequestOptions} args - The arguments.
+ * @param {MockBlockTrackerRequestOptions} args - The arguments.
  * @param {NockScope} args.nockScope - A nock scope (a set of mocked requests
  * scoped to a certain base URL).
  * @param {string} args.blockNumber - The block number that the block tracker
@@ -121,7 +121,7 @@ async function mockNextBlockTrackerRequest({
   nockScope,
   blockNumber = DEFAULT_LATEST_BLOCK_NUMBER,
 }) {
-  await mockSuccessfulInfuraRpcCall({
+  await mockInfuraRpcCall({
     nockScope,
     request: { method: 'eth_blockNumber', params: [] },
     response: { result: blockNumber },
@@ -129,27 +129,72 @@ async function mockNextBlockTrackerRequest({
 }
 
 /**
+ * Mocks all requests for the latest block that the block tracker will make.
+ *
+ * @param {MockBlockTrackerRequestOptions} args - The arguments.
+ * @param {NockScope} args.nockScope - A nock scope (a set of mocked requests
+ * scoped to a certain base URL).
+ * @param {string} args.blockNumber - The block number that the block tracker
+ * should report, as a 0x-prefixed hex string.
+ */
+async function mockAllBlockTrackerRequests({
+  nockScope,
+  blockNumber = DEFAULT_LATEST_BLOCK_NUMBER,
+}) {
+  await mockInfuraRpcCall({
+    nockScope,
+    request: { method: 'eth_blockNumber', params: [] },
+    response: { result: blockNumber },
+  }).persist();
+}
+
+/**
  * Mocks a JSON-RPC request sent to Infura with the given response.
  *
- * @param {MockSuccessfulInfuraRpcCallOptions} args - The arguments.
+ * @param {MockInfuraRpcCallOptions} args - The arguments.
  * @param {NockScope} args.nockScope - A nock scope (a set of mocked requests
  * scoped to a certain base URL).
  * @param {object} args.request - The request data.
- * @param {object} args.response - The response that the request should have.
- * @param {number} args.delay - The amount of time that should pass before the
+ * @param {{body: string} | {httpStatus?: number; id?: number; method?: string; params?: string[]}} [args.response] - Information
+ * concerning the response that the request should have. If a `body` property is
+ * present, this is taken as the complete response body. If an `httpStatus`
+ * property is present, then it is taken as the HTTP status code to respond
+ * with. Properties other than these two are used to build a complete response
+ * body (including `id` and `jsonrpc` properties).
+ * @param {Error | string} [args.error] - An error to throw while making the
+ * request. Takes precedence over `response`.
+ * @param {number} [args.delay] - The amount of time that should pass before the
  * request resolves with the response.
+ * @param {number} [args.times] - The number of times that the request is
+ * expected to be made.
  * @returns {NockScope} The nock scope.
  */
-function mockSuccessfulInfuraRpcCall({ nockScope, request, response, delay }) {
-  // eth-query always passes `params`, so even if we don't supply this property
+function mockInfuraRpcCall({
+  nockScope,
+  request,
+  response,
+  error,
+  delay,
+  times,
+}) {
+  // eth-query always passes `params`, so even if we don't supply this property,
   // for consistency with makeRpcCall, assume that the `body` contains it
   const { method, params = [], ...rest } = request;
-  const completeResponse = {
-    id: 1,
-    jsonrpc: '2.0',
-    ...response,
-  };
-  const nockRequest = nockScope.post(`/v3/${INFURA_PROJECT_ID}`, {
+  const httpStatus = response?.httpStatus ?? 200;
+  let completeResponse;
+  if (response !== undefined) {
+    if (response.body === undefined) {
+      completeResponse = { id: 1, jsonrpc: '2.0' };
+      ['id', 'jsonrpc', 'result', 'error'].forEach((prop) => {
+        if (response[prop] !== undefined) {
+          completeResponse[prop] = response[prop];
+        }
+      });
+    } else {
+      completeResponse = response.body;
+    }
+  }
+  let nockRequest = nockScope.post(`/v3/${INFURA_PROJECT_ID}`, {
     jsonrpc: '2.0',
     method,
     params,
@@ -157,10 +202,19 @@ function mockSuccessfulInfuraRpcCall({ nockScope, request, response, delay }) {
   });
 
   if (delay !== undefined) {
-    nockRequest.delay(delay);
+    nockRequest = nockRequest.delay(delay);
   }
 
-  return nockRequest.reply(200, completeResponse);
+  if (times !== undefined) {
+    nockRequest = nockRequest.times(times);
+  }
+
+  if (error !== undefined) {
+    return nockRequest.replyWithError(error);
+  } else if (completeResponse !== undefined) {
+    return nockRequest.reply(httpStatus, completeResponse);
+  }
+  return nockRequest;
 }
 
 /**
@@ -202,13 +256,16 @@ export async function mockingInfuraCommunications(...args) {
   const nockScope = buildScopeForMockingInfuraRequests({ network });
   const curriedMockNextBlockTrackerRequest = (localOptions) =>
     mockNextBlockTrackerRequest({ nockScope, ...localOptions });
-  const curriedMockSuccessfulInfuraRpcCall = (localOptions) =>
-    mockSuccessfulInfuraRpcCall({ nockScope, ...localOptions });
+  const curriedMockAllBlockTrackerRequests = (localOptions) =>
+    mockAllBlockTrackerRequests({ nockScope, ...localOptions });
+  const curriedMockInfuraRpcCall = (localOptions) =>
+    mockInfuraRpcCall({ nockScope, ...localOptions });
 
   try {
     return await fn({
       mockNextBlockTrackerRequest: curriedMockNextBlockTrackerRequest,
-      mockSuccessfulInfuraRpcCall: curriedMockSuccessfulInfuraRpcCall,
+      mockAllBlockTrackerRequests: curriedMockAllBlockTrackerRequests,
+      mockInfuraRpcCall: curriedMockInfuraRpcCall,
     });
   } finally {
     nock.isDone();
@@ -260,6 +317,7 @@ export async function withInfuraClient(...args) {
 
   try {
     return await fn({
+      blockTracker,
       makeRpcCall: curriedMakeRpcCall,
       makeRpcCallsInSeries,
       clock,
