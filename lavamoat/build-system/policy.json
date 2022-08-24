@@ -62,7 +62,7 @@
       },
       "packages": {
         "@babel/core>@ampproject/remapping>@jridgewell/gen-mapping": true,
-        "@babel/core>@ampproject/remapping>@jridgewell/trace-mapping": true
+        "terser>@jridgewell/source-map>@jridgewell/trace-mapping": true
       }
     },
     "@babel/core>@ampproject/remapping>@jridgewell/gen-mapping": {
@@ -70,22 +70,8 @@
         "define": true
       },
       "packages": {
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/set-array": true,
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true
-      }
-    },
-    "@babel/core>@ampproject/remapping>@jridgewell/trace-mapping": {
-      "globals": {
-        "define": true
-      },
-      "packages": {
-        "@babel/core>@ampproject/remapping>@jridgewell/trace-mapping>@jridgewell/resolve-uri": true,
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true
-      }
-    },
-    "@babel/core>@ampproject/remapping>@jridgewell/trace-mapping>@jridgewell/resolve-uri": {
-      "globals": {
-        "define": true
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/set-array": true,
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true
       }
     },
     "@babel/core>@babel/generator": {
@@ -93,31 +79,9 @@
         "console.error": true
       },
       "packages": {
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping": true,
         "@babel/core>@babel/generator>jsesc": true,
-        "@babel/core>@babel/types": true
-      }
-    },
-    "@babel/core>@babel/generator>@jridgewell/gen-mapping": {
-      "globals": {
-        "define": true
-      },
-      "packages": {
-        "@babel/core>@ampproject/remapping>@jridgewell/trace-mapping": true,
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/set-array": true,
-        "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true
-      }
-    },
-    "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/set-array": {
-      "globals": {
-        "define": true
-      }
-    },
-    "@babel/core>@babel/generator>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": {
-      "globals": {
-        "Buffer": true,
-        "TextDecoder": true,
-        "define": true
+        "@babel/core>@babel/types": true,
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping": true
       }
     },
     "@babel/core>@babel/generator>jsesc": {
@@ -1092,11 +1056,6 @@
         "define": true
       }
     },
-    "@storybook/addon-essentials>@storybook/addon-docs>acorn-walk": {
-      "globals": {
-        "define": true
-      }
-    },
     "@storybook/addon-essentials>@storybook/addon-docs>remark-slug>unist-util-visit": {
       "packages": {
         "@storybook/addon-essentials>@storybook/addon-docs>remark-slug>unist-util-visit>unist-util-visit-parents": true
@@ -1117,42 +1076,14 @@
         "util.deprecate": true
       }
     },
-    "@storybook/components>react-syntax-highlighter>refractor>parse-entities": {
-      "packages": {
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>character-entities": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>character-entities-legacy": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>character-reference-invalid": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>is-alphanumerical": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>is-hexadecimal": true,
-        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true
+    "@storybook/react>acorn-walk": {
+      "globals": {
+        "define": true
       }
     },
-    "@storybook/components>react-syntax-highlighter>refractor>parse-entities>is-alphanumerical": {
-      "packages": {
-        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-alphabetical": true,
-        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true
-      }
-    },
-    "@storybook/react>@storybook/core-common>glob-base": {
-      "builtin": {
-        "path.dirname": true
-      },
-      "packages": {
-        "@storybook/react>@storybook/core-common>glob-base>glob-parent": true,
-        "@storybook/react>@storybook/core-common>glob-base>is-glob": true
-      }
-    },
-    "@storybook/react>@storybook/core-common>glob-base>glob-parent": {
-      "builtin": {
-        "path.dirname": true
-      },
-      "packages": {
-        "@storybook/react>@storybook/core-common>glob-base>is-glob": true
-      }
-    },
-    "@storybook/react>@storybook/core-common>glob-base>is-glob": {
-      "packages": {
-        "gulp-watch>anymatch>micromatch>is-extglob": true
+    "@storybook/react>webpack>json-parse-even-better-errors": {
+      "globals": {
+        "Buffer.isBuffer": true
       }
     },
     "@typescript-eslint/eslint-plugin": {
@@ -1386,7 +1317,7 @@
     },
     "brfs>static-module>acorn-node": {
       "packages": {
-        "@storybook/addon-essentials>@storybook/addon-docs>acorn-walk": true,
+        "@storybook/react>acorn-walk": true,
         "brfs>static-module>acorn-node>acorn": true,
         "watchify>xtend": true
       }
@@ -1853,6 +1784,7 @@
       "packages": {
         "chokidar>braces": true,
         "chokidar>fsevents": true,
+        "chokidar>fsevents": true,
         "chokidar>glob-parent": true,
         "chokidar>is-binary-path": true,
         "chokidar>normalize-path": true,
@@ -2080,8 +2012,8 @@
     "depcheck>cosmiconfig>parse-json": {
       "packages": {
         "@babel/code-frame": true,
+        "@storybook/react>webpack>json-parse-even-better-errors": true,
         "depcheck>cosmiconfig>parse-json>error-ex": true,
-        "depcheck>cosmiconfig>parse-json>json-parse-even-better-errors": true,
         "depcheck>cosmiconfig>parse-json>lines-and-columns": true
       }
     },
@@ -2091,11 +2023,6 @@
       },
       "packages": {
         "depcheck>cosmiconfig>parse-json>error-ex>is-arrayish": true
-      }
-    },
-    "depcheck>cosmiconfig>parse-json>json-parse-even-better-errors": {
-      "globals": {
-        "Buffer.isBuffer": true
       }
     },
     "depcheck>cosmiconfig>yaml": {
@@ -2632,8 +2559,13 @@
     },
     "eslint-plugin-node>eslint-plugin-es": {
       "packages": {
-        "eslint-plugin-node>eslint-utils": true,
+        "eslint-plugin-node>eslint-plugin-es>eslint-utils": true,
         "eslint>regexpp": true
+      }
+    },
+    "eslint-plugin-node>eslint-plugin-es>eslint-utils": {
+      "packages": {
+        "eslint-plugin-node>eslint-plugin-es>eslint-utils>eslint-visitor-keys": true
       }
     },
     "eslint-plugin-node>eslint-utils": {
@@ -2864,7 +2796,7 @@
       "packages": {
         "eslint>eslint-visitor-keys": true,
         "eslint>espree>acorn-jsx": true,
-        "ts-node>acorn": true
+        "terser>acorn": true
       }
     },
     "eslint>espree>acorn-jsx": {
@@ -4189,10 +4121,32 @@
     },
     "gulp-watch>anymatch>micromatch>parse-glob": {
       "packages": {
-        "@storybook/react>@storybook/core-common>glob-base": true,
         "gulp-watch>anymatch>micromatch>is-extglob": true,
+        "gulp-watch>anymatch>micromatch>parse-glob>glob-base": true,
         "gulp-watch>anymatch>micromatch>parse-glob>is-dotfile": true,
         "gulp-watch>anymatch>micromatch>parse-glob>is-glob": true
+      }
+    },
+    "gulp-watch>anymatch>micromatch>parse-glob>glob-base": {
+      "builtin": {
+        "path.dirname": true
+      },
+      "packages": {
+        "gulp-watch>anymatch>micromatch>parse-glob>glob-base>glob-parent": true,
+        "gulp-watch>anymatch>micromatch>parse-glob>glob-base>is-glob": true
+      }
+    },
+    "gulp-watch>anymatch>micromatch>parse-glob>glob-base>glob-parent": {
+      "builtin": {
+        "path.dirname": true
+      },
+      "packages": {
+        "gulp-watch>anymatch>micromatch>parse-glob>glob-base>is-glob": true
+      }
+    },
+    "gulp-watch>anymatch>micromatch>parse-glob>glob-base>is-glob": {
+      "packages": {
+        "gulp-watch>anymatch>micromatch>is-extglob": true
       }
     },
     "gulp-watch>anymatch>micromatch>parse-glob>is-glob": {
@@ -4389,389 +4343,6 @@
       "packages": {
         "gulp-watch>chokidar>braces>fill-range>is-number": true,
         "webpack>micromatch>braces>fill-range>repeat-string": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "fs.stat": true,
-        "path.join": true,
-        "util.inherits": true
-      },
-      "globals": {
-        "__dirname": true,
-        "process.nextTick": true,
-        "process.platform": true,
-        "setImmediate": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "fs.existsSync": true,
-        "fs.readFileSync": true,
-        "fs.renameSync": true,
-        "path.dirname": true,
-        "path.existsSync": true,
-        "path.join": true,
-        "path.resolve": true,
-        "url.parse": true,
-        "url.resolve": true,
-        "util.inherits": true
-      },
-      "globals": {
-        "__dirname": true,
-        "console.log": true,
-        "process.arch": true,
-        "process.cwd": true,
-        "process.env": true,
-        "process.platform": true,
-        "process.version.substr": true,
-        "process.versions": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>detect-libc": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>semver": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>detect-libc": {
-      "builtin": {
-        "child_process.spawnSync": true,
-        "fs.readdirSync": true,
-        "os.platform": true
-      },
-      "globals": {
-        "process.env": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt": {
-      "builtin": {
-        "path": true,
-        "stream.Stream": true,
-        "url": true
-      },
-      "globals": {
-        "console": true,
-        "process.argv": true,
-        "process.env.DEBUG_NOPT": true,
-        "process.env.NOPT_DEBUG": true,
-        "process.platform": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>abbrev": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv": {
-      "builtin": {
-        "child_process.exec": true,
-        "path": true
-      },
-      "globals": {
-        "process.env.COMPUTERNAME": true,
-        "process.env.ComSpec": true,
-        "process.env.EDITOR": true,
-        "process.env.HOSTNAME": true,
-        "process.env.PATH": true,
-        "process.env.PROMPT": true,
-        "process.env.PS1": true,
-        "process.env.Path": true,
-        "process.env.SHELL": true,
-        "process.env.USER": true,
-        "process.env.USERDOMAIN": true,
-        "process.env.USERNAME": true,
-        "process.env.VISUAL": true,
-        "process.env.path": true,
-        "process.nextTick": true,
-        "process.platform": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv>os-homedir": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv>os-tmpdir": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv>os-homedir": {
-      "builtin": {
-        "os.homedir": true
-      },
-      "globals": {
-        "process.env": true,
-        "process.getuid": true,
-        "process.platform": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>nopt>osenv>os-tmpdir": {
-      "globals": {
-        "process.env.SystemRoot": true,
-        "process.env.TEMP": true,
-        "process.env.TMP": true,
-        "process.env.TMPDIR": true,
-        "process.env.windir": true,
-        "process.platform": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "util": true
-      },
-      "globals": {
-        "process.nextTick": true,
-        "process.stderr": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>console-control-strings": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>set-blocking": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "util.inherits": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>delegates": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "stream": true,
-        "util": true
-      },
-      "globals": {
-        "process.browser": true,
-        "process.env.READABLE_STREAM": true,
-        "process.stderr": true,
-        "process.stdout": true,
-        "process.version.slice": true,
-        "setImmediate": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>core-util-is": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>isarray": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>process-nextick-args": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>string_decoder": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>util-deprecate": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>core-util-is": {
-      "globals": {
-        "Buffer.isBuffer": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>process-nextick-args": {
-      "globals": {
-        "process": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>string_decoder": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>util-deprecate": {
-      "builtin": {
-        "util.deprecate": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge": {
-      "builtin": {
-        "util.format": true
-      },
-      "globals": {
-        "clearInterval": true,
-        "process": true,
-        "setImmediate": true,
-        "setInterval": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>console-control-strings": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>aproba": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>has-unicode": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>object-assign": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>signal-exit": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>wide-align": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>has-unicode": {
-      "builtin": {
-        "os.type": true
-      },
-      "globals": {
-        "process.env.LANG": true,
-        "process.env.LC_ALL": true,
-        "process.env.LC_CTYPE": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>signal-exit": {
-      "builtin": {
-        "assert.equal": true,
-        "events": true
-      },
-      "globals": {
-        "process": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>code-point-at": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point>number-is-nan": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi>ansi-regex": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>wide-align": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>npmlog>set-blocking": {
-      "globals": {
-        "process.stderr": true,
-        "process.stdout": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf": {
-      "builtin": {
-        "assert": true,
-        "fs": true,
-        "path.join": true
-      },
-      "globals": {
-        "process.platform": true,
-        "setTimeout": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob": {
-      "builtin": {
-        "assert": true,
-        "events.EventEmitter": true,
-        "fs.lstat": true,
-        "fs.lstatSync": true,
-        "fs.readdir": true,
-        "fs.readdirSync": true,
-        "fs.stat": true,
-        "fs.statSync": true,
-        "path.join": true,
-        "path.resolve": true,
-        "util": true
-      },
-      "globals": {
-        "console.error": true,
-        "process.cwd": true,
-        "process.nextTick": true,
-        "process.platform": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>fs.realpath": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>inflight": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>path-is-absolute": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>fs.realpath": {
-      "builtin": {
-        "fs.lstat": true,
-        "fs.lstatSync": true,
-        "fs.readlink": true,
-        "fs.readlinkSync": true,
-        "fs.realpath": true,
-        "fs.realpathSync": true,
-        "fs.stat": true,
-        "fs.statSync": true,
-        "path.normalize": true,
-        "path.resolve": true
-      },
-      "globals": {
-        "console.error": true,
-        "console.trace": true,
-        "process.env.NODE_DEBUG": true,
-        "process.nextTick": true,
-        "process.noDeprecation": true,
-        "process.platform": true,
-        "process.throwDeprecation": true,
-        "process.traceDeprecation": true,
-        "process.version": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>inflight": {
-      "globals": {
-        "process.nextTick": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>once>wrappy": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": {
-      "builtin": {
-        "util.inherits": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch": {
-      "builtin": {
-        "path": true
-      },
-      "globals": {
-        "console.error": true
-      },
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion>balanced-match": true,
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion>concat-map": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": {
-      "packages": {
-        "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>once>wrappy": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>rimraf>glob>path-is-absolute": {
-      "globals": {
-        "process.platform": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>semver": {
-      "globals": {
-        "console": true,
-        "process": true
-      }
-    },
-    "gulp-watch>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": {
-      "builtin": {
-        "buffer": true
       }
     },
     "gulp-watch>chokidar>is-binary-path": {
@@ -5247,6 +4818,310 @@
     },
     "gulp>glob-watcher>chokidar": {
       "builtin": {
+=======
+      "packages": {
+        "gulp-watch>glob-parent>is-glob": true,
+        "gulp-watch>glob-parent>path-dirname": true
+      }
+    },
+    "gulp-watch>glob-parent>is-glob": {
+      "packages": {
+        "gulp-watch>glob-parent>is-glob>is-extglob": true
+      }
+    },
+    "gulp-watch>glob-parent>path-dirname": {
+      "builtin": {
+        "path": true,
+        "util.inspect": true
+      },
+      "globals": {
+        "process.platform": true
+      }
+    },
+    "gulp-watch>path-is-absolute": {
+      "globals": {
+        "process.platform": true
+      }
+    },
+    "gulp-watch>vinyl-file": {
+      "builtin": {
+        "path.resolve": true
+      },
+      "globals": {
+        "process.cwd": true
+      },
+      "packages": {
+        "del>globby>pinkie-promise": true,
+        "fs-extra>graceful-fs": true,
+        "gulp-watch>vinyl-file>pify": true,
+        "gulp-watch>vinyl-file>strip-bom": true,
+        "gulp-watch>vinyl-file>strip-bom-stream": true,
+        "gulp-watch>vinyl-file>vinyl": true
+      }
+    },
+    "gulp-watch>vinyl-file>strip-bom": {
+      "globals": {
+        "Buffer.isBuffer": true
+      },
+      "packages": {
+        "gulp>vinyl-fs>remove-bom-buffer>is-utf8": true
+      }
+    },
+    "gulp-watch>vinyl-file>strip-bom-stream": {
+      "packages": {
+        "gulp-watch>vinyl-file>strip-bom": true,
+        "gulp-watch>vinyl-file>strip-bom-stream>first-chunk-stream": true
+      }
+    },
+    "gulp-watch>vinyl-file>strip-bom-stream>first-chunk-stream": {
+      "builtin": {
+        "util.inherits": true
+      },
+      "globals": {
+        "Buffer.concat": true,
+        "setImmediate": true
+      },
+      "packages": {
+        "readable-stream": true
+      }
+    },
+    "gulp-watch>vinyl-file>vinyl": {
+      "builtin": {
+        "buffer.Buffer": true,
+        "path.basename": true,
+        "path.dirname": true,
+        "path.extname": true,
+        "path.join": true,
+        "path.relative": true,
+        "stream.PassThrough": true,
+        "stream.Stream": true
+      },
+      "globals": {
+        "process.cwd": true
+      },
+      "packages": {
+        "gulp-watch>vinyl-file>vinyl>clone": true,
+        "gulp-watch>vinyl-file>vinyl>clone-stats": true,
+        "gulp-watch>vinyl-file>vinyl>replace-ext": true
+      }
+    },
+    "gulp-watch>vinyl-file>vinyl>clone": {
+      "globals": {
+        "Buffer": true
+      }
+    },
+    "gulp-watch>vinyl-file>vinyl>clone-stats": {
+      "builtin": {
+        "fs.Stats": true
+      }
+    },
+    "gulp-watch>vinyl-file>vinyl>replace-ext": {
+      "builtin": {
+        "path.basename": true,
+        "path.dirname": true,
+        "path.extname": true,
+        "path.join": true
+      }
+    },
+    "gulp-zip": {
+      "builtin": {
+        "buffer.constants.MAX_LENGTH": true,
+        "path.join": true
+      },
+      "packages": {
+        "gulp-zip>get-stream": true,
+        "gulp-zip>plugin-error": true,
+        "gulp-zip>through2": true,
+        "gulp-zip>yazl": true,
+        "vinyl": true
+      }
+    },
+    "gulp-zip>get-stream": {
+      "builtin": {
+        "buffer.constants.MAX_LENGTH": true,
+        "stream.PassThrough": true
+      },
+      "globals": {
+        "Buffer.concat": true
+      },
+      "packages": {
+        "pump": true
+      }
+    },
+    "gulp-zip>plugin-error": {
+      "builtin": {
+        "util.inherits": true
+      },
+      "packages": {
+        "gulp-watch>ansi-colors": true,
+        "gulp-zip>plugin-error>arr-union": true,
+        "gulp-zip>plugin-error>extend-shallow": true,
+        "webpack>micromatch>arr-diff": true
+      }
+    },
+    "gulp-zip>plugin-error>extend-shallow": {
+      "packages": {
+        "gulp-zip>plugin-error>extend-shallow>is-extendable": true,
+        "webpack>micromatch>extend-shallow>assign-symbols": true
+      }
+    },
+    "gulp-zip>plugin-error>extend-shallow>is-extendable": {
+      "packages": {
+        "@babel/register>clone-deep>is-plain-object": true
+      }
+    },
+    "gulp-zip>through2": {
+      "builtin": {
+        "util.inherits": true
+      },
+      "globals": {
+        "process.nextTick": true
+      },
+      "packages": {
+        "gulp-zip>through2>readable-stream": true
+      }
+    },
+    "gulp-zip>through2>readable-stream": {
+      "builtin": {
+        "buffer.Buffer": true,
+        "events.EventEmitter": true,
+        "stream": true,
+        "util": true
+      },
+      "globals": {
+        "process.env.READABLE_STREAM": true,
+        "process.nextTick": true,
+        "process.stderr": true,
+        "process.stdout": true
+      },
+      "packages": {
+        "@storybook/api>util-deprecate": true,
+        "browserify>string_decoder": true,
+        "pumpify>inherits": true
+      }
+    },
+    "gulp-zip>yazl": {
+      "builtin": {
+        "events.EventEmitter": true,
+        "fs.createReadStream": true,
+        "fs.stat": true,
+        "stream.PassThrough": true,
+        "stream.Transform": true,
+        "util.inherits": true,
+        "zlib.DeflateRaw": true,
+        "zlib.deflateRaw": true
+      },
+      "globals": {
+        "Buffer": true,
+        "setImmediate": true,
+        "utf8FileName.length": true
+      },
+      "packages": {
+        "gulp-zip>yazl>buffer-crc32": true
+      }
+    },
+    "gulp-zip>yazl>buffer-crc32": {
+      "builtin": {
+        "buffer.Buffer": true
+      }
+    },
+    "gulp>glob-watcher": {
+      "packages": {
+        "gulp>glob-watcher>anymatch": true,
+        "gulp>glob-watcher>async-done": true,
+        "gulp>glob-watcher>chokidar": true,
+        "gulp>glob-watcher>is-negated-glob": true,
+        "gulp>glob-watcher>just-debounce": true,
+        "gulp>undertaker>object.defaults": true
+      }
+    },
+    "gulp>glob-watcher>anymatch": {
+      "builtin": {
+        "path.sep": true
+      },
+      "packages": {
+        "gulp>glob-watcher>anymatch>micromatch": true,
+        "gulp>glob-watcher>anymatch>normalize-path": true
+      }
+    },
+    "gulp>glob-watcher>anymatch>micromatch": {
+      "builtin": {
+        "path.basename": true,
+        "path.sep": true,
+        "util.inspect": true
+      },
+      "globals": {
+        "process.platform": true
+      },
+      "packages": {
+        "3box>ipfs>kind-of": true,
+        "gulp>glob-watcher>anymatch>micromatch>define-property": true,
+        "gulp>glob-watcher>anymatch>micromatch>extend-shallow": true,
+        "gulp>glob-watcher>chokidar>braces": true,
+        "webpack>micromatch>arr-diff": true,
+        "webpack>micromatch>array-unique": true,
+        "webpack>micromatch>extglob": true,
+        "webpack>micromatch>fragment-cache": true,
+        "webpack>micromatch>nanomatch": true,
+        "webpack>micromatch>object.pick": true,
+        "webpack>micromatch>regex-not": true,
+        "webpack>micromatch>snapdragon": true,
+        "webpack>micromatch>to-regex": true
+      }
+    },
+    "gulp>glob-watcher>anymatch>micromatch>define-property": {
+      "packages": {
+        "gulp>gulp-cli>isobject": true,
+        "webpack>micromatch>define-property>is-descriptor": true
+      }
+    },
+    "gulp>glob-watcher>anymatch>micromatch>extend-shallow": {
+      "packages": {
+        "gulp>glob-watcher>anymatch>micromatch>extend-shallow>is-extendable": true,
+        "webpack>micromatch>extend-shallow>assign-symbols": true
+      }
+    },
+    "gulp>glob-watcher>anymatch>micromatch>extend-shallow>is-extendable": {
+      "packages": {
+        "@babel/register>clone-deep>is-plain-object": true
+      }
+    },
+    "gulp>glob-watcher>anymatch>normalize-path": {
+      "packages": {
+        "vinyl>remove-trailing-separator": true
+      }
+    },
+    "gulp>glob-watcher>async-done": {
+      "builtin": {
+        "domain.create": true
+      },
+      "globals": {
+        "process.nextTick": true
+      },
+      "packages": {
+        "end-of-stream": true,
+        "gulp>glob-watcher>async-done>process-nextick-args": true,
+        "gulp>glob-watcher>async-done>stream-exhaust": true,
+        "pump>once": true
+      }
+    },
+    "gulp>glob-watcher>async-done>process-nextick-args": {
+      "globals": {
+        "process": true
+      }
+    },
+    "gulp>glob-watcher>async-done>stream-exhaust": {
+      "builtin": {
+        "stream.Writable": true,
+        "util.inherits": true
+      },
+      "globals": {
+        "setImmediate": true
+      }
+    },
+    "gulp>glob-watcher>chokidar": {
+      "builtin": {
+>>>>>>> 2814de319 (Updating storybook from 6.3 to 6.5)
         "events.EventEmitter": true,
         "fs": true,
         "path.basename": true,
@@ -5310,6 +5185,7 @@
     "gulp>glob-watcher>chokidar>braces>fill-range>is-number": {
       "packages": {
         "gulp>glob-watcher>chokidar>braces>fill-range>is-number>kind-of": true
+<<<<<<< HEAD
       }
     },
     "gulp>glob-watcher>chokidar>braces>fill-range>is-number>kind-of": {
@@ -5475,235 +5351,18 @@
       }
     },
     "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream": {
-      "builtin": {
-        "events.EventEmitter": true,
-        "stream": true,
-        "util": true
-      },
-      "globals": {
-        "process.browser": true,
-        "process.env.READABLE_STREAM": true,
-        "process.stderr": true,
-        "process.stdout": true,
-        "process.version.slice": true,
-        "setImmediate": true
-      },
+=======
+      }
+    },
+    "gulp>glob-watcher>chokidar>braces>fill-range>is-number>kind-of": {
       "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>core-util-is": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>isarray": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>process-nextick-args": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>string_decoder": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>util-deprecate": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": true
+        "browserify>insert-module-globals>is-buffer": true
       }
     },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>core-util-is": {
-      "globals": {
-        "Buffer.isBuffer": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>process-nextick-args": {
-      "globals": {
-        "process": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>string_decoder": {
+    "gulp>glob-watcher>chokidar>braces>fill-range>to-regex-range": {
       "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>are-we-there-yet>readable-stream>util-deprecate": {
-      "builtin": {
-        "util.deprecate": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge": {
-      "builtin": {
-        "util.format": true
-      },
-      "globals": {
-        "clearInterval": true,
-        "process": true,
-        "setImmediate": true,
-        "setInterval": true
-      },
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>console-control-strings": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>aproba": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>has-unicode": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>object-assign": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>signal-exit": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>wide-align": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>has-unicode": {
-      "builtin": {
-        "os.type": true
-      },
-      "globals": {
-        "process.env.LANG": true,
-        "process.env.LC_ALL": true,
-        "process.env.LC_CTYPE": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>signal-exit": {
-      "builtin": {
-        "assert.equal": true,
-        "events": true
-      },
-      "globals": {
-        "process": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>code-point-at": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width>is-fullwidth-code-point>number-is-nan": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>strip-ansi>ansi-regex": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>wide-align": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>gauge>string-width": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>npmlog>set-blocking": {
-      "globals": {
-        "process.stderr": true,
-        "process.stdout": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf": {
-      "builtin": {
-        "assert": true,
-        "fs": true,
-        "path.join": true
-      },
-      "globals": {
-        "process.platform": true,
-        "setTimeout": true
-      },
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob": {
-      "builtin": {
-        "assert": true,
-        "events.EventEmitter": true,
-        "fs.lstat": true,
-        "fs.lstatSync": true,
-        "fs.readdir": true,
-        "fs.readdirSync": true,
-        "fs.stat": true,
-        "fs.statSync": true,
-        "path.join": true,
-        "path.resolve": true,
-        "util": true
-      },
-      "globals": {
-        "console.error": true,
-        "process.cwd": true,
-        "process.nextTick": true,
-        "process.platform": true
-      },
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>fs.realpath": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>inflight": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>path-is-absolute": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>fs.realpath": {
-      "builtin": {
-        "fs.lstat": true,
-        "fs.lstatSync": true,
-        "fs.readlink": true,
-        "fs.readlinkSync": true,
-        "fs.realpath": true,
-        "fs.realpathSync": true,
-        "fs.stat": true,
-        "fs.statSync": true,
-        "path.normalize": true,
-        "path.resolve": true
-      },
-      "globals": {
-        "console.error": true,
-        "console.trace": true,
-        "process.env.NODE_DEBUG": true,
-        "process.nextTick": true,
-        "process.noDeprecation": true,
-        "process.platform": true,
-        "process.throwDeprecation": true,
-        "process.traceDeprecation": true,
-        "process.version": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>inflight": {
-      "globals": {
-        "process.nextTick": true
-      },
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>once>wrappy": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>inherits": {
-      "builtin": {
-        "util.inherits": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch": {
-      "builtin": {
-        "path": true
-      },
-      "globals": {
-        "console.error": true
-      },
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion>balanced-match": true,
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>minimatch>brace-expansion>concat-map": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>once": {
-      "packages": {
-        "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>once>wrappy": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>rimraf>glob>path-is-absolute": {
-      "globals": {
-        "process.platform": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>semver": {
-      "globals": {
-        "console": true,
-        "process": true
-      }
-    },
-    "gulp>glob-watcher>chokidar>fsevents>node-pre-gyp>tar>safe-buffer": {
-      "builtin": {
-        "buffer": true
+        "gulp>glob-watcher>chokidar>braces>fill-range>is-number": true,
+        "webpack>micromatch>braces>fill-range>repeat-string": true
       }
     },
     "gulp>glob-watcher>chokidar>is-binary-path": {
@@ -7110,7 +6769,6 @@
     },
     "stylelint>@stylelint/postcss-markdown>remark>remark-parse": {
       "packages": {
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>ccount": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>collapse-white-space": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-alphabetical": true,
@@ -7118,6 +6776,7 @@
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-whitespace-character": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-word-character": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>markdown-escapes": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>state-toggle": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>trim": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>trim-trailing-lines": true,
@@ -7126,6 +6785,22 @@
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>vfile-location": true,
         "watchify>xtend": true,
         "webpack>micromatch>braces>fill-range>repeat-string": true
+      }
+    },
+    "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities": {
+      "packages": {
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>character-entities": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>character-entities-legacy": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>character-reference-invalid": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>is-alphanumerical": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>is-hexadecimal": true
+      }
+    },
+    "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>is-alphanumerical": {
+      "packages": {
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-alphabetical": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true
       }
     },
     "stylelint>@stylelint/postcss-markdown>remark>remark-parse>unherit": {
@@ -7141,11 +6816,11 @@
     },
     "stylelint>@stylelint/postcss-markdown>remark>remark-stringify": {
       "packages": {
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>ccount": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-whitespace-character": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>markdown-escapes": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>state-toggle": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>unherit": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-stringify>is-alphanumeric": true,
@@ -7169,10 +6844,10 @@
     },
     "stylelint>@stylelint/postcss-markdown>remark>remark-stringify>stringify-entities": {
       "packages": {
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>character-entities-legacy": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>is-alphanumerical": true,
-        "@storybook/components>react-syntax-highlighter>refractor>parse-entities>is-hexadecimal": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-parse>is-decimal": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>character-entities-legacy": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>is-alphanumerical": true,
+        "stylelint>@stylelint/postcss-markdown>remark>remark-parse>parse-entities>is-hexadecimal": true,
         "stylelint>@stylelint/postcss-markdown>remark>remark-stringify>stringify-entities>character-entities-html4": true
       }
     },
@@ -7642,17 +7317,60 @@
         "console.log": true,
         "console.warn": true,
         "define": true,
-        "process.argv": true,
-        "process.exit": true,
-        "process.platform": true,
-        "process.stderr.write": true,
-        "process.stdin.on": true,
-        "process.stdin.resume": true,
-        "process.stdin.setEncoding": true
+        "process": true
       },
       "packages": {
-        "source-map": true,
-        "ts-node>acorn": true
+        "terser>@jridgewell/source-map": true,
+        "terser>acorn": true
+      }
+    },
+    "terser>@jridgewell/source-map": {
+      "globals": {
+        "Buffer": true,
+        "TextDecoder": true,
+        "define": true
+      }
+    },
+    "terser>@jridgewell/source-map>@jridgewell/gen-mapping": {
+      "globals": {
+        "define": true
+      },
+      "packages": {
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/set-array": true,
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true,
+        "terser>@jridgewell/source-map>@jridgewell/trace-mapping": true
+      }
+    },
+    "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/set-array": {
+      "globals": {
+        "define": true
+      }
+    },
+    "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": {
+      "globals": {
+        "Buffer": true,
+        "TextDecoder": true,
+        "define": true
+      }
+    },
+    "terser>@jridgewell/source-map>@jridgewell/trace-mapping": {
+      "globals": {
+        "define": true
+      },
+      "packages": {
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true,
+        "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/resolve-uri": true
+      }
+    },
+    "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/resolve-uri": {
+      "globals": {
+        "define": true
+      }
+    },
+    "terser>acorn": {
+      "globals": {
+        "console": true,
+        "define": true
       }
     },
     "terser>source-map-support": {
@@ -7698,12 +7416,6 @@
         "@storybook/api>util-deprecate": true,
         "browserify>string_decoder": true,
         "pumpify>inherits": true
-      }
-    },
-    "ts-node>acorn": {
-      "globals": {
-        "console": true,
-        "define": true
       }
     },
     "tsutils": {
