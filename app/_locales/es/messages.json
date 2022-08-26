@@ -39,10 +39,64 @@
     "message": "Conecte una cartera de hardware airgapped que se comunique por códigos QR. Las carteras de hardware con soporte oficial incluyen:"
   },
   "QRHardwareWalletSteps1Title": {
-    "message": "Cartera HW con QR"
+    "message": "Cartera de HW con QR"
   },
   "QRHardwareWalletSteps2Description": {
-    "message": "AirGap Vault y Ngrave (próximamente)"
+    "message": "Ngrave (próximamente)"
+  },
+  "SIWEAddressInvalid": {
+    "message": "La dirección de la solicitud de inicio de sesión no coincide con la dirección de la cuenta que está utilizando para iniciar sesión."
+  },
+  "SIWEDomainInvalid": {
+    "message": "El sitio web en el que intenta iniciar sesión ($1) no coincide con el dominio de la solicitud de inicio de sesión. Proceda con precaución.",
+    "description": "$1 represents the website domain"
+  },
+  "SIWEDomainWarningBody": {
+    "message": "El sitio web ($1) le pide que inicie sesión en un dominio incorrecto. Esto puede ser un ataque de phishing.",
+    "description": "$1 represents the website domain"
+  },
+  "SIWELabelChainID": {
+    "message": "Identificador de cadena:"
+  },
+  "SIWELabelExpirationTime": {
+    "message": "Caduca el:"
+  },
+  "SIWELabelIssuedAt": {
+    "message": "Emitido el:"
+  },
+  "SIWELabelMessage": {
+    "message": "Mensaje:"
+  },
+  "SIWELabelNonce": {
+    "message": "Nonce:"
+  },
+  "SIWELabelNotBefore": {
+    "message": "No antes de:"
+  },
+  "SIWELabelRequestID": {
+    "message": "Identificador de la solicitud:"
+  },
+  "SIWELabelResources": {
+    "message": "Recursos: $1",
+    "description": "$1 represents the number of resources"
+  },
+  "SIWELabelURI": {
+    "message": "URI:"
+  },
+  "SIWELabelVersion": {
+    "message": "Versión:"
+  },
+  "SIWESiteRequestSubtitle": {
+    "message": "Este sitio solicita iniciar sesión con"
+  },
+  "SIWESiteRequestTitle": {
+    "message": "Solicitud de inicio de sesión"
+  },
+  "SIWEWarningSubtitle": {
+    "message": "Para confirmar que comprende, verifique:"
+  },
+  "SIWEWarningTitle": {
+    "message": "¿Está seguro?"
   },
   "about": {
     "message": "Acerca de"
@@ -121,11 +175,14 @@
   "addAlias": {
     "message": "Agregar alias"
   },
+  "addBlockExplorer": {
+    "message": "Agregar un explorador de bloque"
+  },
   "addContact": {
     "message": "Agregar contacto"
   },
   "addCustomToken": {
-    "message": "Añadir token personalizado"
+    "message": "Agregar token personalizado"
   },
   "addCustomTokenByContractAddress": {
     "message": "¿No encuentra un token? Puede agregar cualquier token si copia su dirección. Puede encontrar la dirección de contrato del token en $1.",
@@ -277,6 +334,9 @@
   "approveAndInstall": {
     "message": "Aprobar e instalar"
   },
+  "approveAndUpdate": {
+    "message": "Aprobar y actualizar"
+  },
   "approveButtonText": {
     "message": "Aprobar"
   },
@@ -292,6 +352,10 @@
   },
   "approvedAsset": {
     "message": "Activo aprobado"
+  },
+  "approvedOn": {
+    "message": "Aprobado el $1",
+    "description": "$1 is the approval date for a permission"
   },
   "areYouSure": {
     "message": "¿Está seguro?"
@@ -335,6 +399,9 @@
   "backToAll": {
     "message": "Volver a Todos"
   },
+  "backup": {
+    "message": "Respaldo"
+  },
   "backupApprovalInfo": {
     "message": "Este código secreto es necesario para que recupere la cartera en caso de que pierda el dispositivo, olvide su contraseña, tenga que volver a instalar MetaMask o quiera acceder a la cartera en otro dispositivo."
   },
@@ -343,6 +410,12 @@
   },
   "backupNow": {
     "message": "Crear copia de seguridad ahora"
+  },
+  "backupUserData": {
+    "message": "Respalde sus datos"
+  },
+  "backupUserDataDescription": {
+    "message": "Puede respaldar la configuración del usuario que contiene preferencias y direcciones de cuenta en un archivo JSON."
   },
   "balance": {
     "message": "Saldo"
@@ -401,7 +474,7 @@
     "message": "Blockies"
   },
   "browserNotSupported": {
-    "message": "El explorador no es compatible…"
+    "message": "Su explorador no es compatible..."
   },
   "buildContactList": {
     "message": "Cree su lista de contactos"
@@ -522,6 +595,9 @@
   },
   "confirm": {
     "message": "Confirmar"
+  },
+  "confirmPageDialogSetApprovalForAll": {
+    "message": "Al hacer clic en aprobar, otorga acceso a todos los NFT que posee actualmente en este contrato y cualquier NFT en este contrato que pueda adquirir en el futuro hasta que revoque esta aprobación. La parte a la que le otorga la aprobación podrá transferir sus NFT desde su billetera sin previo aviso. Proceda con precaución."
   },
   "confirmPassword": {
     "message": "Confirmar contraseña"
@@ -762,7 +838,10 @@
     "message": "La detección de token aún no está disponible en esta red. Importe el token de forma manual y asegúrese de que confía en él. Más información sobre $1"
   },
   "customTokenWarningInTokenDetectionNetwork": {
-    "message": "Antes de importar un tóken de forma manual, asegúrese de que confía en él. Más información sobre $1."
+    "message": "Antes de importar un tóken de forma manual, asegúrese de que confía en él. Más información acerca de $1"
+  },
+  "customTokenWarningInTokenDetectionNetworkWithTDOFF": {
+    "message": "Asegúrese de confiar en un token antes de agregarlo. Aprenda cómo evitar $1. También puede habilitar la detección de tokens $2."
   },
   "customerSupport": {
     "message": "atención al cliente"
@@ -1384,7 +1463,7 @@
     "description": "$1 represents an amount of time"
   },
   "gasUsed": {
-    "message": "Gas usado"
+    "message": "Gas utilizado"
   },
   "gdprMessage": {
     "message": "Estos datos son agregados y, por lo tanto, son anónimos para los fines del Reglamento General de Protección de Datos (UE) 2016/679. Para obtener más información relacionada con nuestras prácticas de seguridad, consulte $1.",
@@ -1405,10 +1484,10 @@
     "description": "Displays network name for Ether faucet"
   },
   "getStarted": {
-    "message": "Empezar"
+    "message": "Comenzar"
   },
   "goBack": {
-    "message": "Volver"
+    "message": "Retroceder"
   },
   "goerli": {
     "message": "Red de prueba Goerli"
@@ -1509,7 +1588,7 @@
     "message": "Importar una cuenta con la frase secreta de recuperación"
   },
   "importMyWallet": {
-    "message": "Importar Mi cartera"
+    "message": "Importar mi cartera"
   },
   "importNFT": {
     "message": "Agregar NFT"
@@ -1525,6 +1604,12 @@
   },
   "importNFTs": {
     "message": "AGREGAR NFT"
+  },
+  "importSelectedTokens": {
+    "message": "¿Agregar los tokens seleccionados?"
+  },
+  "importSelectedTokensDescription": {
+    "message": "Únicamente los tokens seleccionados aparecerán en su billetera. Siempre podrá agregar tokens ocultos más tarde realizando una búsqueda de los mismos."
   },
   "importTokenQuestion": {
     "message": "¿Desea importar el token?"
@@ -1551,6 +1636,9 @@
   "imported": {
     "message": "Importado",
     "description": "status showing that an account has been fully loaded into the keyring"
+  },
+  "inYourSettings": {
+    "message": "en su Configuración"
   },
   "infuraBlockedNotification": {
     "message": "MetaMask no se pudo conectar al host de la cadena de bloques. Revise las razones posibles $1.",
@@ -1764,7 +1852,7 @@
     "message": "Cargando NFT..."
   },
   "loadingTokens": {
-    "message": "Cargando tokens…"
+    "message": "Cargando tokens..."
   },
   "localhost": {
     "message": "Host local 8545"
@@ -2097,7 +2185,7 @@
     "message": "NFT"
   },
   "nftTokenIdPlaceholder": {
-    "message": "Ingresa el ID del token"
+    "message": "Ingrese el id del token"
   },
   "nfts": {
     "message": "NFT"
@@ -2166,7 +2254,7 @@
     "message": "Notificaciones"
   },
   "notifications10ActionText": {
-    "message": "Vaya a configuración",
+    "message": "Ir a configuración",
     "description": "The 'call to action' on the button, or link, of the 'Visit in Settings' notification. Upon clicking, users will be taken to Settings page."
   },
   "notifications10DescriptionOne": {
@@ -2191,7 +2279,7 @@
     "message": "Habilitar modo oscuro"
   },
   "notifications12Description": {
-    "message": "¡El modo oscuro en Extensión finalmente está aquí! Para activarlo, vaya a Configuración -> Experimental y seleccione una de las opciones de visualización: Claro, Oscuro, Sistema."
+    "message": "¡El modo oscuro en Extensión finalmente está aquí! Para activarlo, vaya a Configuración> Experimental y seleccione una de las opciones de visualización: Claro, Oscuro, Sistema."
   },
   "notifications12Title": {
     "message": "¿Cuándo estará disponible el modo oscuro? ¡Ahora! 🕶️🦊"
@@ -2200,7 +2288,7 @@
     "message": "Mostrar lista de redes personalizadas"
   },
   "notifications13Description": {
-    "message": "Ahora puede agregar fácilmente las siguientes redes personalizadas populares: Arbitrum, Avalanche, Binance Smart Chain, Fantom, Harmony, Optimism, Palm y Polygon. Para habilitar esta función, vaya a Configuración -> Experimental y ¡active \"Mostrar lista de redes personalizadas\"!",
+    "message": "¡Ahora puede agregar fácilmente las siguientes redes personalizadas populares: Arbitrum, Avalanche, Binance Smart Chain, Fantom, Harmony, Optimism, Palm y Polygon! ¡Para habilitar esta función, vaya a Configuración > Experimental y active \"Mostrar lista de redes personalizadas\"!",
     "description": "Description of a notification in the 'See What's New' popup. Describes popular network feature."
   },
   "notifications13Title": {
@@ -2271,7 +2359,7 @@
     "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users of the need to update firmware."
   },
   "notifications8ActionText": {
-    "message": "Ir a Configuración Avanzada",
+    "message": "Ir a Configuración > Avanzado",
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
   },
   "notifications8DescriptionOne": {
@@ -2279,7 +2367,7 @@
     "description": "Description of a notification in the 'See What's New' popup. Describes changes for how Ledger Live is no longer needed to connect the device."
   },
   "notifications8DescriptionTwo": {
-    "message": "Para una experiencia más fácil y estable, vaya a la pestaña de Configuración Avanzada y cambie el 'Tipo de Conexión de Ledger Preferida' a 'WebHID'.",
+    "message": "Para una experiencia más fácil y estable, vaya a la pestaña de Configuración > Avanzado y cambie el 'Tipo de conexión a Ledger preferida' a 'WebHID'.",
     "description": "Description of a notification in the 'See What's New' popup. Describes how the user can turn off the Ledger Live setting."
   },
   "notifications8Title": {
@@ -2459,8 +2547,14 @@
   "permissionRequestCapitalized": {
     "message": "Solicitud de permiso"
   },
+  "permissionRequested": {
+    "message": "Solicitado ahora"
+  },
+  "permissionRevoked": {
+    "message": "Revocado en esta actualización"
+  },
   "permission_accessNetwork": {
-    "message": "Acceda a Internet.",
+    "message": "Acceso a internet.",
     "description": "The description of the `endowment:network-access` permission."
   },
   "permission_accessSnap": {
@@ -2512,7 +2606,7 @@
     "message": "Redes populares personalizadas"
   },
   "preferredLedgerConnectionType": {
-    "message": "Tipo de conexión de Ledger preferida",
+    "message": "Tipo de conexión a Ledger preferida",
     "description": "A header for a dropdown in Settings > Advanced. Appears above the ledgerConnectionPreferenceDescription message"
   },
   "preparingSwap": {
@@ -2691,6 +2785,18 @@
   "restore": {
     "message": "Restaurar"
   },
+  "restoreFailed": {
+    "message": "No se pueden restaurar sus datos desde el archivo proporcionado"
+  },
+  "restoreSuccessful": {
+    "message": "Sus datos se restauraron correctamente"
+  },
+  "restoreUserData": {
+    "message": "Restaure sus datos de usuario"
+  },
+  "restoreUserDataDescription": {
+    "message": "Puede restaurar la configuración del usuario que contiene preferencias y direcciones de cuenta desde en un archivo JSON previamente respaldado."
+  },
   "restoreWalletPreferences": {
     "message": "Se encontró una copia de seguridad de los datos de $1. ¿Desea restaurar las preferencias de cartera?",
     "description": "$1 is the date at which the data was backed up"
@@ -2761,7 +2867,7 @@
     "message": "Resultados de la búsqueda"
   },
   "searchSettings": {
-    "message": "Buscar en configuración"
+    "message": "Buscar en Configuración"
   },
   "searchTokens": {
     "message": "Buscar tokens"
@@ -2996,6 +3102,9 @@
   "signed": {
     "message": "Firmado"
   },
+  "signin": {
+    "message": "Iniciar sesión"
+  },
   "simulationErrorMessageV2": {
     "message": "No pudimos estimar el gas. Podría haber un error en el contrato y esta transacción podría fallar."
   },
@@ -3030,10 +3139,24 @@
     "message": "Instalar complemento"
   },
   "snapInstallWarningCheck": {
-    "message": "Para confirmar que comprende, marque todo."
+    "message": "Para confirmar que comprende, verifique la casilla."
+  },
+  "snapInstallWarningCheckPlural": {
+    "message": "Para confirmar que comprende, marque todas las casillas."
+  },
+  "snapInstallWarningKeyAccess": {
+    "message": "Está otorgando acceso clave de $2 al complemento \"$1\". Esto es irrevocable y le otorga a \"$1\" el control de sus cuentas y activos de $2. Asegúrese de que confía en \"$1\" antes de continuar.",
+    "description": "The first parameter is the name of the snap and the second one is the protocol"
   },
   "snapRequestsPermission": {
     "message": "Este complemento solicita los siguientes permisos:"
+  },
+  "snapUpdate": {
+    "message": "Actualizar complemento"
+  },
+  "snapUpdateExplanation": {
+    "message": "$1 necesita una versión más reciente de su complemento.",
+    "description": "$1 is the dapp that is requesting an update to the snap."
   },
   "snaps": {
     "message": "Complementos"
@@ -3200,7 +3323,7 @@
     "message": "El swap habría fallado"
   },
   "stxCancelledDescription": {
-    "message": "Su transacción habría fallado y fue cancelada para protegerlo de pagar comisiones de gas innecesarias."
+    "message": "Su transacción pudo haber fallado y fue cancelada para protegerlo de pagar comisiones de gas innecesarias."
   },
   "stxCancelledSubDescription": {
     "message": "Intente su swap nuevamente. Estaremos aquí para protegerlo contra riesgos similares la próxima vez."
@@ -3486,7 +3609,7 @@
     "message": "Solicitud de cotización"
   },
   "swapReviewSwap": {
-    "message": "Revisar canje"
+    "message": "Revisar swap"
   },
   "swapSearchForAToken": {
     "message": "Buscar un token"
@@ -3674,7 +3797,7 @@
     "message": "Términos de servicio"
   },
   "testFaucet": {
-    "message": "Probar faucet"
+    "message": "Faucet de prueba"
   },
   "testNetworks": {
     "message": "Redes de prueba"
@@ -3732,11 +3855,17 @@
   "tokenDetectionAlertMessage": {
     "message": "La detección de tókens está actualmente disponible en $1. $2"
   },
+  "tokenDetectionDescription": {
+    "message": "La API de tokens de ConsenSys agrega una lista de tokens de varias listas de tokens de terceros. Cuando está activada, los tokens se detectarán automáticamente y se podrán buscar en la red principal de Ethereum, Binance, Polygon y Avalanche. Cuando está desactivada, aún podrá buscar tokens en la red principal de Ethereum utilizando la lista de tokens heredados de MetaMask."
+  },
   "tokenId": {
     "message": "Identificador de Token"
   },
   "tokenList": {
     "message": "Listas de tokens:"
+  },
+  "tokenScamSecurityRisk": {
+    "message": "estafas de tokens y riesgos de seguridad"
   },
   "tokenSymbol": {
     "message": "Símbolo del token"
@@ -3932,8 +4061,12 @@
     "message": "La Web descentralizada espera"
   },
   "unrecognizedChain": {
-    "message": "No se reconoce esta red personalizada. Antes de continuar, le recomendamos que $1",
+    "message": "No se reconoce esta red personalizada",
     "description": "$1 is a clickable link with text defined by the 'unrecognizedChanLinkText' key. The link will open to instructions for users to validate custom network details."
+  },
+  "unrecognizedProtocol": {
+    "message": "$1 (Protocolo no reconocido)",
+    "description": "Shown when the protocol is unknown by the extension. $1 is the protocol code."
   },
   "unsendableAsset": {
     "message": "El envío de tokens coleccionables (ERC-721) no se admite actualmente",
@@ -4067,7 +4200,7 @@
     "message": "Bienvenido a MetaMask"
   },
   "welcomeBack": {
-    "message": "Hola de nuevo"
+    "message": "¡Bienvenido de nuevo!"
   },
   "welcomeExploreDescription": {
     "message": "Almacenar, enviar y gastar criptomonedas y activos."
