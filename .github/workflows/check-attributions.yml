@@ -3,10 +3,7 @@ name: Generate and Validate Attributions
 on:
   pull_request:
     branches:
-      - develop
-    types:
-      - opened
-      - synchronize
+      - '^Version-v(\d+)\.(\d+)\.(\d+)$'
 
 jobs:
   generate-and-validate-attributions:
