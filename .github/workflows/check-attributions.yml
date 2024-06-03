@@ -2,7 +2,7 @@ name: Check Attributions
 
 on:
   pull_request:
-    branches: Version-v[0-9]+.[0-9]+.[0-9]+
+    branches: v[0-9]+.[0-9]+.[0-9]+
 
 jobs:
   check-attributions:
