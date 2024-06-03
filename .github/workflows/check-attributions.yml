@@ -1,12 +1,12 @@
-name: Generate and Validate Attributions
+name: Check Attributions
 
 on:
   pull_request:
     branches:
-      - 'Version-v[0-9]+.[0-9]+.[0-9]+'
+      - '^Version-v\d+\.\d+\.\d+$'
 
 jobs:
-  generate-and-validate-attributions:
+  check-attributions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
