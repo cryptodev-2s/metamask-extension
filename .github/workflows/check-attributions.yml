@@ -3,7 +3,7 @@ name: Check Attributions
 on:
   pull_request:
     branches:
-      - '^Version-v\d+\.\d+\.\d+$'
+      - 'Version-v\d+\.\d+\.\d+'
 
 jobs:
   check-attributions:
