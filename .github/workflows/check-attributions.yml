@@ -3,7 +3,7 @@ name: Generate and Validate Attributions
 on:
   pull_request:
     branches:
-      - '^Version-v(\d+)\.(\d+)\.(\d+)$'
+      - 'Version-v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   generate-and-validate-attributions:
