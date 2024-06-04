@@ -1,12 +1,15 @@
 name: Generate and Validate Attributions
 
 on:
+  push:
+    branches: [ Version-v*, master ]
   pull_request:
-    branches:
-      - develop
+    branches: [ Version-v*, master ]
     types:
       - opened
+      - reopened
       - synchronize
+      - ready_for_review
 
 jobs:
   generate-and-validate-attributions:
